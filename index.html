@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AutoFinance - Kredit Mobil</title>
+    <!-- Bootstrap 5 CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+   <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container">
+            <a class="navbar-brand" href="#">🚗 AutoFinance</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#beranda">Beranda</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#tentang">Tentang Perusahaan</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#kontak">Kontak Perusahaan</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Slider -->
+    <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="0" class="active"></button>
+            <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="1"></button>
+            <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="2"></button>
+        </div>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="https://images.unsplash.com/photo-1494976388531-d1058494cdd8?w=1200&h=300&fit=crop" class="d-block w-100" alt="Mobil 1">
+            </div>
+            <div class="carousel-item">
+                <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=1200&h=300&fit=crop" class="d-block w-100" alt="Mobil 2">
+            </div>
+            <div class="carousel-item">
+                <img src="https://images.unsplash.com/photo-1550355291-bbee04a92027?w=1200&h=300&fit=crop" class="d-block w-100" alt="Mobil 3">
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+            <span class="carousel-control-next-icon"></span>
+        </button>
+    </div>
+
+    <!-- Form Perhitungan Kredit -->
+    <section id="beranda" class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-4">Hitung Kredit Mobil</h2>
+            <div class="row justify-content-center">
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <form id="kreditForm">
+                                <div class="mb-3">
+                                    <label class="form-label">Harga Mobil (Rp)</label>
+                                    <input type="number" class="form-control" id="hargaMobil" placeholder="200000000" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">DP (%)</label>
+                                    <input type="number" class="form-control" id="dp" placeholder="20" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Tenor (Tahun)</label>
+                                    <input type="number" class="form-control" id="tenor" placeholder="3" required>
+                                </div>
+                                <button type="submit" class="btn btn-primary w-100">Hitung</button>
+                            </form>
+                        </div>
+                    </div>
+                    
+                    <!-- Hasil Perhitungan -->
+                    <div id="hasil" class="card result-card mt-4" style="display: none;">
+                        <div class="card-body">
+                            <h5 class="text-center mb-3">Hasil Perhitungan</h5>
+                            <div class="row">
+                                <div class="col-6">
+                                    <p><small>Harga Mobil:</small><br><strong id="showHarga">-</strong></p>
+                                    <p><small>DP (%):</small><br><strong id="showDP">-</strong></p>
+                                    <p><small>Tenor:</small><br><strong id="showTenor">-</strong></p>
+                                </div>
+                                <div class="col-6">
+                                    <p><small>Bunga (20%):</small><br><strong id="showBunga">-</strong></p>
+                                    <p><small>Nilai DP:</small><br><strong id="showNilaiDP">-</strong></p>
+                                    <p><small>Tenor Bulan:</small><br><strong id="showBulan">-</strong></p>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="text-center">
+                                <h6>Angsuran Per Bulan:</h6>
+                                <h4 id="angsuran">Rp 0</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tentang -->
+    <section id="tentang" class="bg-light py-5">
+        <div class="container">
+            <h2 class="text-center mb-4">Tentang Perusahaan</h2>
+            <div class="row justify-content-center">
+                <div class="col-md-8 text-center">
+                    <p>AutoFinance adalah perusahaan pembiayaan mobil terpercaya yang membantu Anda memiliki mobil impian dengan cicilan ringan dan bunga kompetitif.</p>
+                    <div class="row mt-4">
+                        <div class="col-md-4">
+                            <h6>🚗 Berbagai Pilihan</h6>
+                            <p><small>Mobil bekas dan baru</small></p>
+                        </div>
+                        <div class="col-md-4">
+                            <h6>💰 Bunga Tetap 20%</h6>
+                            <p><small>Cicilan stabil</small></p>
+                        </div>
+                        <div class="col-md-4">
+                            <h6>⚡ Proses Cepat</h6>
+                            <p><small>Approval 24 jam</small></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Kontak -->
+    <section id="kontak" class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-4">Kontak Perusahaan</h2>
+            <div class="row justify-content-center text-center">
+                <div class="col-md-8">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <h6>📍 Alamat</h6>
+                            <p>Jl. Sudirman No. 123<br>Jakarta Pusat</p>
+                        </div>
+                        <div class="col-md-4">
+                            <h6>📞 Telepon</h6>
+                            <p>+62 21 1234 5678<br>+62 812 3456 7890</p>
+                        </div>
+                        <div class="col-md-4">
+                            <h6>📧 Email</h6>
+                            <p>info@autofinance.com<br>cs@autofinance.com</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-primary text-white text-center py-3">
+        <p class="mb-0">&copy; 2025 AutoFinance. All Rights Reserved.</p>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        // Auto-start carousel
+        var carousel = new bootstrap.Carousel(document.getElementById('carouselExample'), {
+            interval: 3000,
+            wrap: true
+        });
+
+        document.getElementById('kreditForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Ambil input
+            const harga = parseFloat(document.getElementById('hargaMobil').value);
+            const dpPersen = parseFloat(document.getElementById('dp').value);
+            const tenor = parseFloat(document.getElementById('tenor').value);
+            
+            // Validasi
+            if (!harga || !dpPersen || !tenor || harga <= 0 || dpPersen < 0 || tenor <= 0) {
+                alert('Mohon isi semua field dengan benar!');
+                return;
+            }
+            
+            // Perhitungan sesuai rumus kisi-kisi
+            const bunga = harga * 0.20; // Bunga 20%
+            const nilaiDP = (harga * dpPersen) / 100; // DP dalam rupiah
+            const bulan = tenor * 12; // Tenor dalam bulan
+            const totalHargaBunga = harga + bunga; // Harga + bunga
+            const sisaSetelahDP = totalHargaBunga - nilaiDP; // Sisa setelah DP
+            const angsuranBulan = sisaSetelahDP / bulan; // Angsuran per bulan
+            
+            // Format ke rupiah
+            function formatRp(num) {
+                return 'Rp ' + num.toLocaleString('id-ID');
+            }
+            
+            // Tampilkan hasil
+            document.getElementById('showHarga').textContent = formatRp(harga);
+            document.getElementById('showDP').textContent = dpPersen + '%';
+            document.getElementById('showTenor').textContent = tenor + ' tahun';
+            document.getElementById('showBunga').textContent = formatRp(bunga);
+            document.getElementById('showNilaiDP').textContent = formatRp(nilaiDP);
+            document.getElementById('showBulan').textContent = bulan + ' bulan';
+            document.getElementById('angsuran').textContent = formatRp(angsuranBulan);
+            
+            document.getElementById('hasil').style.display = 'block';
+        });
+        
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>
